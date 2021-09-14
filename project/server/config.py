@@ -32,4 +32,4 @@ class ProductionConfig(BaseConfig):
     """Production configuration."""
     SECRET_KEY = 'diagnostic_secret'
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///diagnostic'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://dqeghnrpdiwjhn:d3ba83baf63ff922bbab3c58dcb0f176e44f32ecac7b1cd7ae0832db28a9f0e2@ec2-54-83-137-206.compute-1.amazonaws.com:5432/dbonjoaa59p5o9'
