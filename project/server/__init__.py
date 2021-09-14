@@ -20,6 +20,7 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+
 app = Flask(__name__)
 
 app_settings = os.getenv(
@@ -37,6 +38,15 @@ migrate = Migrate(app, db)
 @app.route("/")
 def root_site():
     return "<p>It works!</p>"
+
+# Creates new path and displays all registered users
+@app.route("/users/index")
+def users_index():
+    list = User.query.all()
+    user_info = []
+    for user in list:
+        user_info.append(str(user.email) + str(user.id))
+    return str(user_info)
 
 from project.server.auth.views import auth_blueprint
 app.register_blueprint(auth_blueprint)
